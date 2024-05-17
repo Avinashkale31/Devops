@@ -24,7 +24,10 @@ Ans - The DevOps lifecycle is a series of automated development processes or wor
 
  7. Operations: Maintain and operate the software in production.
     Tools: Kubernetes, Docker, or other containerization and orchestration tools.
-/
+
+
+
+
 Q. What is Monolithic and microlithic Architecture ?
 Ans -
 1. Monolithic Architecture: A monolithic application is built as a single unit.  It is a traditional model where all components (such as the user interface, business logic, and database) are tightly coupled and interconnected together within one codebase. 
