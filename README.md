@@ -34,13 +34,13 @@ Ans -
 = To make changes, you need to update the entire stack.
 
 
-Deploymnet : Requires full apllication
-Technology : Sinle language used
+Deploymnet : Requires full apllication,
+Technology : Sinle language used,
 Maintain : Changes may impact the entire application.
 
 2. Microservices Architecture: A microservices architecture consists of small, independently deployable services that communicate with each other via APIs (Application program interface).
 
    
-Deploymnet : Independent deployment of service.
-Technology : multiple language used
+Deploymnet : Independent deployment of service,
+Technology : multiple language used,
 Maintain : Change in one service doesn't affect other.
