@@ -32,11 +32,15 @@ Q. What is Monolithic and microlithic Architecture ?
 Ans -
 1. Monolithic Architecture: A monolithic application is built as a single unit.  It is a traditional model where all components (such as the user interface, business logic, and database) are tightly coupled and interconnected together within one codebase. 
 = To make changes, you need to update the entire stack.
+
+
 Deploymnet : Requires full apllication
 Technology : Sinle language used
 Maintain : Changes may impact the entire application.
 
 2. Microservices Architecture: A microservices architecture consists of small, independently deployable services that communicate with each other via APIs (Application program interface).
+
+   
 Deploymnet : Independent deployment of service.
 Technology : multiple language used
 Maintain : Change in one service doesn't affect other.
