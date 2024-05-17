@@ -1,6 +1,6 @@
 # Devop
 Q. What is DevOps 
-Ans - DevOps is a set of practices, tools, and a cultural philosophy that automates and integrates the processes between software development and IT teams. It emphasizes team empowerment, cross-team communication, collaboration, and technology automation. /
+Ans - DevOps is a set of practices, tools, and a cultural philosophy that automates and integrates the processes between software development and IT teams. It emphasizes team empowerment, cross-team communication, collaboration, and technology automation.
 Q. Cycle Of Devops 
 Ans - The DevOps lifecycle is a series of automated development processes or workflows within an iterative development lifecycle. It aims to optimize the rapid delivery of high-quality software. There are  the seven phases of the DevOps lifecycle:
 
