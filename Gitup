@@ -2,3 +2,9 @@
 => It is version control system.
 => It is a tool that helps mutiple people to work on same code project or document tracing and manging changes to the file.
 It is popular, free & open Source, fast & scalable.ls
+
+Q Features of GIT ?
+1. Backup and restore : Files are safe against accidental loss or mistakes
+2. Collabration : Multiple people work on single code simultaneoulsy.
+3. Branching & Merging :
+4. Tracking Changes : We can see specific changes made and by whom.
