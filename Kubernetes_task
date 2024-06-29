@@ -1,0 +1,99 @@
+Q Create a pod in a namespace
+=> kubectl run nginx --image=nginx -n default --restart=Never
+
+Q Create a pod and expose it
+=> kubectl run nginx --image=nginx --restart=Never --port=80
+=> kubectl get pods -o wide
+=> curl IP address
+
+Q Upgrade a deployment by using rolling update
+=> First create a deployment yaml file
+=> kubectl apply -f deployment.yaml
+=> Make change in the version of the image in the yaml file.
+=> kubectl apply -f deployment.yaml
+# check the status of rollout.
+=> kubectl rollout statuts deployment <deployment name>
+#check the revision of deployment.
+=> kubectl rollout history deployment <deployment name>
+
+Q Create a pod with a command
+=> kubectl run nginx --image=nginx --restart=Never
+
+Q Taint a node to be unschedulable
+=> kubectl taint nodes node01 key1=value:NoSchedule
+# To chect the taint
+=> kubectl describe nodes node01 | grep Taint 
+
+Q List all the internal IP's of all the nodes in the cluster
+=> kubectl get nodes -o wide
+
+Q Create a secret and mount it to the pod
+=>
+
+Q Show the logs from the container
+=> kubectl logs <pod name>
+
+Q Overwrite the label of the pod with a value
+=> kubectl lable pod <pod name> <label key=value> --overwrite 
+=> kubectl get pods --show-labels
+
+Q Find out which pods are available with the label in the cluster
+=> kubectl get pods --show-labels
+
+Q Create a pod that will only be scheduled on a node with a specific label
+
+
+Q Remove the taint added to the node
+=> kubectl taint nodes node01 key1=value:taint_Effect-
+
+Q Schedule a pod on the node by using tolerations
+=> Create a yaml file for pod toleration
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mypod
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+  tolerations:
+  - key: "key1"
+    operator: "Equal"
+    value: "value1"
+    effect: "NoSchedule"
+
+=> kubectl apply -f yamlfile
+
+# Add a taint to the node
+=> Kubectl taint nodes node01 key1=value:NoSchedule
+
+Q Create a replicaset which has 3 replicas
+# create a replicaset yaml file
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-replicaset
+  labels:
+    app: myapp
+    type: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+      type: frontend
+  template:
+    metadata:
+      name: nginx
+      labels:
+        app: nginx
+        type: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+
+=> kubectl apply -f replicaset.yaml
+# we can also scale up and down replicas using command
+=> kubectl scale replicaset <replica name> --replicas=<replica number>
+

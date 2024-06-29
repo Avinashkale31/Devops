@@ -1,10 +1,106 @@
  Q What is git ?
 => It is version control system.
 => It is a tool that helps mutiple people to work on same code project or document tracing and manging changes to the file.
-It is popular, free & open Source, fast & scalable.ls
+=> It is popular, free & open Source, fast & scalable.ls
 
 Q Features of GIT ?
 1. Backup and restore : Files are safe against accidental loss or mistakes
 2. Collabration : Multiple people work on single code simultaneoulsy.
 3. Branching & Merging :
 4. Tracking Changes : We can see specific changes made and by whom.
+
+Q What is VCS ?
+=> Every time we make changes adding a sentence to a document or altering a line of code, the VCS records and save.
+
+Q What is Github?
+=> It is a website that allows user to store and manage their code using git.
+
+Q What is FORK ?
+=> It is rough copy of repository. ..........if we want another users repository in our repository with same settings and code.
+
+Q What is Pull request ?
+=> A pull request is to merge a set of changes from one branch into another in GitHub.
+
+Q What is Pull Command ?
+=> Used to fetch and download content from a remote app to local computer.
+
+Q Difference between Pull & clone & Fetch ?
+=> Clone : get snapshot of remote repository to local  repo (laptop)
+Pull : get update from remote repository to local repo integrate those changes into local branches.
+     => it will show real time changes in repo.
+fetch : To download objects and refs (branches,tags etc) from remote repo to local remo without integranting them into local branches.
+
+Q Diff between Merge and rebase ?
+
+Merge : To combine the changes from two branches into a single branch.
+Rebase : To integrate changes from one branch into another by moving.
+
+
+Q What is Merger Conflict ?
+=> When Git is unable to automatically resolve differences in code between two commits.
+  eg : in one branch in second line have different statemnt and another branch in second line  ahve another statement.  So git unable to solve.
+
+$ git --version   .............To know the verion
+$ git config --global user.name "name"
+$ git config --global user.email "email id"  ...................git should now who are you.
+
+$ git init    ................... initialize empty git  repository.
+used to create a new git repo.
+=> After init it creates a hidden file  ............(.git)
+
+$ git add <file name>   .....It will go in stage .......Git will tracked.
+
+
+$ git commit -m "message" ...................it is the record of change in the file.
+$ git status .................. To check the status
+
+Tracked - files that Git knows about and are added to the repository.
+Untracked - new files that git doesn't yet track
+modified : changed
+staged : File is ready to commit
+unmodified : Unchanged
+
+$ git commit -a -m "message"  ..................In one commmand add in stage and commit.
+IMP : Whenever we edit the file everytime we have to add and commit .
+
+$ git log   ............ To check every commit , ID, Author name who has edit the file.
+
+$ git merge branchname filename .................................to merge file.
+             ---if we have to merge in main from dev1.... so we have to be main branch.
+             
+$ git clone ..................  to get repository from remote to local (laptop).
+
+$ git push origin <branch name> ....................upload local repo content to remote repo.
+       origin - remote repo which we have clone repo.
+
+$ git remote add origin <remote repo link>   ....................adding the origin in git
+$ git remote -v  ............to verify the remote.
+
+$ git branch .............To check branch
+$ git branch -M <branch name> .........To rename branch
+$ git branch name .................creating a new branch
+$git checkout branchname ............................navigate the branch
+$ git checkout -b <new branch name> .................to create a new branch and navigate to branch.
+$ git branch -d <branch name>  ............To delete a branch
+
+
+$ git push origin <branch name>.....
+
+$ git pull origin main ..............dwonload content from remote repo to local repo.
+
+
+Workflow In lOCAL : create githup repo - clone in local - chnages in file - add - commit - push.
+
+@ Undoing Changes 
+Case 1 : staged changes  ....................... changes have add but not commit.
+       git reset <file name>   ................to reset changes
+       git reset .................. reset changes all files at a time.
+
+Case 2 : commited changes (for one commit)
+        $ git reset HEAD~1   .................reset last commit 
+        Head : last commit 
+        1 : one step back 
+
+Case 3 :  Commited Changes (if there are multiple commit)
+     $ git reset <commit id>     ....... from this commit all others commit log will delete.
+     $ git reset --hard <commit id> ........from this commit all others commit log will delete and content of the file also be delete.
