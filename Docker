@@ -1,0 +1,101 @@
+Q What is virtuazation?
+-=> Virtualization is a process that allows for more efficient use of physical computer hardware
+Virtualization is a technology that transfer hardware into software.
+
+Q What is container?
+=In container provides isolated environment to run an application. Containers have their own libraries, their own networking.
+= container contains everything needed to run an application –code, dependencies, version and libraries.
+=Containers: A container is a runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI 
+
+•	Containers:
+=> Share the host OS kernel.
+=> Lightweight and fast to start.
+=> Suitable for micro services and modern cloud applications.
+•	Virtual Machines (VMs):
+=> Include a full OS with its own kernel.
+=> More resource-intensive and slower to start
+=> Useful for running multiple different os on a single host.
+
+Q What is Dockers? 
+Docker is open-source platform that allows you to build, test and deploy applications quickly by container. 
+Docker manage the containers that run with libraries and dependencies alone.
+
+Q Why use Docker?
+Using Docker can help you ship your code faster, gives you control over your applications. You can deploy applications on containers that make it easier for them to be deployed, scaled, perform rollbacks and identify issues.
+
+1.	Docker Engine: The runtime that executes and manages containers on a host operating system. It consists of the Docker daemon (dockerd), which manages Docker objects (images, containers, networks, and volumes), and the Docker CLI, which allows users to interact with the docker daemon.
+
+# Docker client: is the primary way to interact with Docker. Docker client can communicate with multiple daemon 
+# Docker Daemon: It listen of Docker API request and manages docker object such as images, containers, and network. A daemon can also communicate with other daemons to manage Docker services.
+ It is responsible for building, running, and managing Docker containers.
+# Docker Desktop: It enables you to build and share containerized applications and microservices.
+# Docker registries: Docker registry stores Docker images. Docker Hub is a public registry that anyone can use, and Docker looks for images on Docker Hub by default. You can even run your own private registry.
+
+Image: image is package or template, it is used to create one or more containers
+
+Q What is docker file?
+Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.
+
+Docker commands
+
+# to list running containers
+$ docker ps
+
+#to list all containers
+$ docker ps -a
+
+# Create a container
+$ docker run -d <image name>
+-d : detach
+
+# start a conatiner
+$ docker start <container_id>
+
+# stop a container
+$ docker stop <container_id>
+
+# To login the container
+$ docker exec -it <container Id> /bin/bash
+
+# logs of conatiner
+$ docker logs <container ID>
+
+# Describe the containers
+$ docker inspect <container ID>
+
+# Display the images 
+$ docker images
+
+# Delete a image
+$ docker rmi <imageid> or <imagename>
+
+# Delete a container 
+$ docker rm <continerID>
+
+# Create a image from the container
+$ docker commit <container ID>
+
+# create a image from the Dockerfile
+$ docker build -t <new image name> dockerfile
+
+# Download a image from repository
+$ dokcer pull <iamgename>
+
+# upload a image to the repository
+$ docker push <imageID>
+
+# list a network
+$ docker network ls
+
+# create a network
+$ docker create network <network name>
+
+# list a volume
+$docker volume ls
+
+# create a volume
+$ docker create volume <volume name>
+
+# Mount volume to container
+$ docker run -it -v <volumename>:/<new dir name> /bin/bash
+
