@@ -1,11 +1,11 @@
 Q What is virtuazation?
--=> Virtualization is a process that allows for more efficient use of physical computer hardware
+-=> Virtualization is a process that allows us to share  physical computer hardware
 Virtualization is a technology that transfer hardware into software.
 
 Q What is container?
-=In container provides isolated environment to run an application. Containers have their own libraries, their own networking.
+=In container provides isolated environment to run any application. Containers have their own libraries, their own networking.
 = container contains everything needed to run an application –code, dependencies, version and libraries.
-=Containers: A container is a runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI 
+= A container is a runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI 
 
 •	Containers:
 => Share the host OS kernel.
