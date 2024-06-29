@@ -88,13 +88,13 @@ $ docker push <imageID>
 $ docker network ls
 
 # create a network
-$ docker create network <network name>
+$ docker network create <network name>
 
 # list a volume
 $docker volume ls
 
 # create a volume
-$ docker create volume <volume name>
+$ docker  volume create <volume name>
 
 # Mount volume to container
 $ docker run -it -v <volumename>:/<new dir name> /bin/bash
