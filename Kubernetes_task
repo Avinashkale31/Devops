@@ -34,7 +34,7 @@ Q Show the logs from the container
 => kubectl logs <pod name>
 
 Q Overwrite the label of the pod with a value
-=> kubectl lable pod <pod name> <label key=value> --overwrite 
+=> kubectl label pod <pod name> <label key=value> --overwrite 
 => kubectl get pods --show-labels
 
 Q Find out which pods are available with the label in the cluster
@@ -97,3 +97,98 @@ spec:
 # we can also scale up and down replicas using command
 => kubectl scale replicaset <replica name> --replicas=<replica number>
 
+
+Q Create a replicaset which has 3 replicas
+=> create a replica.yml file.
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-replicaset
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+
+=> Now apply it 
+$ kubectl apply -f replicaset.yaml
+
+
+Q Edit an existing pod and add a command
+=> Fisrt we have to delete pod then make changes in the yaml file. and re apply it.
+
+Q Delete all the pods with a specific label
+=> kubectl delete pod -l <label key=value>
+
+Q Create a pod and set "NET_ADMIN"
+=> First create a pod.yml file
+apiVersion: v1
+kind: Pod
+metadata:
+  name: netadmin-pod
+spec:
+  containers:
+  - name: netadmin-container
+    image: nginx
+    securityContext:
+      capabilities:
+        add:
+        - NET_ADMIN
+ 
+ $ k apply -f pod.yml
+ => K describe pod <podname>
+
+ Q Get a list of all the pods which were recently deleted
+=> Kubeclt get events 
+
+Q Delete a pod without any delay
+=> kubectl delete pod <podname> --grace-period=0
+
+Q Find the static pod path
+=> cd /etc/kubernetes/manifests
+
+Q Create a clusterrole, service account and rolebinding
+=> Create a file of cluster role.yml file.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: secret-reader
+rules:
+- apiGroups: [""]
+  resources: ["secrets"]
+  verbs: ["get", "watch", "list"]
+
+=> Now apply kubectl apply -f clusterrole.yml
+kubectl get clusterrole secret-reader
+
+=>  Create service account yaml file service.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: example-serviceaccount
+
+=> create a rolebinding.yaml file
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: read-secrets-global
+subjects:
+- kind: User
+  name: riya
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: secret-reader
+  apiGroup: rbac.authorization.k8s.io
+
+
+Q Create two pods with different labels
+=> 
